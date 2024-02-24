@@ -1,0 +1,52 @@
+@keyframes navAnimation {
+    from {
+        max-height: 0;
+    }
+
+    to {
+        max-height: 152px;
+    }
+}
+
+
+@keyframes btnUpperSpanAnimation {
+    60% {
+      transform: translate(-50%, -50%);
+    }
+
+    65% {
+        transform: translate(-50%, -50%);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+}
+
+@keyframes btnMiddleSpanAnimation {
+    60% {
+      opacity: 1;
+    }
+
+    65% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes btnLowerSpanAnimation {
+    60% {
+      transform: translate(-50%, -50%);
+    }
+
+    65% {
+        transform: translate(-50%, -50%);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+}

@@ -17,10 +17,16 @@
     width: auto;
 }
 
-@mixin make-col-offset($size, $columns: $grid-columns){
+@mixin make-col-offset-left($size, $columns: $grid-columns){
     $num: percentage(math.div($size, $columns));
 
     margin-left: if($num == 0, 0, $num);
+}
+
+@mixin make-col-offset-right($size, $columns: $grid-columns){
+    $num: percentage(math.div($size, $columns));
+
+    margin-right: if($num == 0, 0, $num);
 }
 
 @mixin make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints){
@@ -46,8 +52,12 @@
 
                 @for $i from 0 through ($columns - 1){
                     @if not ($infix == "" and $i == 0){
-                        .offset#{$infix}-#{$i}{
-                            @include make-col-offset($i, $columns);
+                        .offset-left#{$infix}-#{$i}{
+                            @include make-col-offset-left($i, $columns);
+                        }
+
+                        .offset-right#{$infix}-#{$i}{
+                            @include make-col-offset-right($i, $columns);
                         }
                     }
                 }

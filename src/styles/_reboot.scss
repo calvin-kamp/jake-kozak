@@ -64,7 +64,9 @@ strong {
 }
 
 a {
+    display: inline-block;
     color: inherit;
+    line-height: 38px;
     text-decoration: none;
 
     &.color--link {

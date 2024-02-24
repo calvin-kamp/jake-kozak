@@ -1,0 +1,93 @@
+@import '@styles/mixins/_flex';
+
+.site-header {
+    padding: 15px 0;
+    background-color: var(--color-white);
+    border-bottom-left-radius: 65px;
+    border-bottom-right-radius: 65px;
+    transition: 5s;
+
+    .grid-container {
+
+    }
+
+    &__logo {
+
+    }
+
+    &__navigation {
+        display: none;
+        max-height: 0;
+
+        ul {
+            list-style: none;
+
+            li {
+                margin-left: 0;
+                text-align: center;
+                text-transform: uppercase;
+
+
+            }
+        }
+    }
+
+    &__navigation-toggle {
+        @include flex();
+        align-items: center;
+        position: relative;
+        width: 40px;
+        height: 40px;
+        padding: 10px;
+        margin: 15px auto;
+        background-color: transparent;
+        border-radius: 100%;
+        border: 2px solid var(--color-black);
+
+        &.navigation-open {
+            span {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+
+                &:first-of-type {
+                    animation: btnUpperSpanAnimation 0.5s linear forwards;
+                }
+
+                &:nth-of-type(2){
+                    animation: btnMiddleSpanAnimation 0.5s linear forwards;
+                }
+
+                &:last-of-type {
+                    animation: btnLowerSpanAnimation 0.5s linear forwards;
+                }
+            }
+            
+            + nav {
+                display: block;
+                animation: navAnimation 1s linear forwards;
+            }
+        }
+
+        span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 25px;
+            height: 2px;
+            background-color: var(--color-black);
+
+            &:first-of-type {
+                transform: translate(-50%, calc(-50% - 7px));
+            }
+
+            &:nth-last-of-type(2){
+                transform: translate(-50%, -50%);
+            }
+
+            &:last-of-type {
+                transform: translate(-50%, calc(-50% + 7px));
+            }
+        }
+    }
+}

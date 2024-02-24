@@ -9,5 +9,9 @@
 @import './_reboot';
 @import './_grid-container';
 
+// Animations
+@import './components/animations/_navigation';
+
 // Components
 @import './components/_headlines';
+@import './components/_button';
