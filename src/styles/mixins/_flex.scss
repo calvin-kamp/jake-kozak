@@ -1,0 +1,35 @@
+@mixin flex($direction: row, $wrap: wrap){
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+
+    @if $direction == reverse {
+        -webkit-box-direction: reverse;
+        -webkit-box-orient: horizontal;
+        -moz-box-direction: reverse;
+        -moz-box-orient: horizontal;
+    }
+
+    @else {
+        -webkit-box-direction: normal;
+        -webkit-box-orient: horizontal;
+        -moz-box-direction: normal;
+        -moz-box-orient: horizontal;
+    }
+
+    -webkit-flex-direction: $direction;
+    -ms-flex-direction: $direction;
+    flex-direction: $direction;
+
+    -webkit-flex-wrap: $wrap;
+
+    @if $wrap == nowrap {
+        -ms-flex-wrap: none;
+    }
+
+    @else {
+        -ms-flex-wrap: $wrap;
+        flex-wrap: $wrap;
+    }
+
+}

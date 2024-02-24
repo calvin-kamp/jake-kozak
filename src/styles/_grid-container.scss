@@ -1,0 +1,45 @@
+.grid-container,
+.grid-container-fluid {
+    @include flex();
+    width: 100%;
+    padding-right: calc($grid-gutter-width * .5);
+    padding-left: calc($grid-gutter-width * .5);
+    margin-right: auto;
+    margin-left: auto;
+
+    > * {
+        flex-shrink: 0;
+        width: 100%;
+        max-width: 100%;
+        padding-right: calc($grid-gutter-width * .5);
+        padding-left: calc($grid-gutter-width * .5);
+    }
+}
+
+@each $breakpoint, $container-max-width in $container-max-widths {
+    .grid-container-#{$breakpoint} {
+        @extend .grid-container-fluid;
+    }
+
+    @include breakpoint-up($breakpoint, $grid-breakpoints) {
+        %responsive-container-#{$breakpoint} {
+            max-width: $container-max-width;
+        }
+
+        $extend-breakpoint: true;
+
+        @each $name, $width in $grid-breakpoints {
+            @if ($extend-breakpoint) {
+                .grid-container#{breakpoint-infix($name, $grid-breakpoints)} {
+                    @extend %responsive-container-#{$breakpoint};
+                }
+
+                @if ($breakpoint ==$name) {
+                    $extend-breakpoint: false;
+                }
+            }
+        }
+    }
+}
+
+@include make-grid-columns()
