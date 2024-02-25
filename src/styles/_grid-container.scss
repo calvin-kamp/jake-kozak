@@ -1,6 +1,7 @@
 .grid-container,
 .grid-container-fluid {
     @include flex();
+    position: relative;
     width: 100%;
     padding-right: calc($grid-gutter-width * .5);
     padding-left: calc($grid-gutter-width * .5);

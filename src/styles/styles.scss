@@ -9,8 +9,11 @@
 @import './_reboot';
 @import './_grid-container';
 
+@import './components/layout/site-header';
+@import './components/layout/site-footer';
+
 // Animations
-@import './components/animations/_navigation';
+
 
 // Components
 @import './components/_headlines';
