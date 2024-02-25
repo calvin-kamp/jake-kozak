@@ -4,11 +4,16 @@
     border-top-left-radius: 65px;
     border-top-right-radius: 65px;
     text-align: center;
+    box-shadow: 0 -4px 4px 0 rgba(0, 0, 0, 0.25);
+
+    @include breakpoint-up(md){
+        padding-bottom: 5px;
+    }
 
     ul {
         @include flex();
         justify-content: center;
-        column-gap: 30px;
+        column-gap: 15px;
         list-style: none;
 
         li {
@@ -17,10 +22,8 @@
     }
 
     &__socials {
-        margin-bottom: 5px;
-
-        @include breakpoint-up(md){
-            margin-bottom: 0;
+        ul {
+            column-gap: 0;
         }
 
         a {
@@ -29,13 +32,25 @@
     }
 
     &__meta {
-
+        @include breakpoint-up(md){
+            order: 3;
+        }
     }
 
     &__copyright {
+        @include breakpoint-up(md){
+            order: 2;
+            line-height: 38px;
+            text-align: left;
+        }
+
+        @include breakpoint-up(lg){
+            line-height: inherit;
+        }
 
         span {
             display: block;
+            margin-top: 5px;
 
             @include breakpoint-up(md){
                 display: inline;

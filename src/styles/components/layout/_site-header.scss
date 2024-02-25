@@ -7,6 +7,7 @@
     background-color: var(--color-white);
     border-bottom-left-radius: 35px;
     border-bottom-right-radius: 35px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 
     .grid-container {
         justify-content: space-between;
@@ -14,8 +15,6 @@
     }
 
     &__logo {
-        z-index: 2;
-
         a {
             display: block;
             line-height: 0;
@@ -24,21 +23,39 @@
     }
 
     &__navigation {
-        position: absolute;
-        top: calc(-100% - 130px);
-        left: 0;
-        padding: 40px 0 15px;
+        position: fixed;
+        top: -10px;
+        right: -100%;
+        bottom: 0;
+        padding: 100px 0 15px;
         background-color: var(--color-white);
-        border-bottom-left-radius: 35px;
-        border-bottom-right-radius: 35px;
         transition: 0.7s linear;
-        z-index: 1;
+        z-index: 2;
+
+        @include breakpoint-up(lg){
+            @include flex();
+            align-items: center;
+            position: static;
+            height: 60px;
+            padding: 0;
+            box-shadow: none;
+        }
 
         ul {
+            @include flex();
+            row-gap: 25px;
             list-style: none;
 
+            @include breakpoint-up(lg){
+                @include flex();
+                justify-content: space-between;
+                width: 100%;
+            }
+
             li {
+                width: 100%;
                 margin-left: 0;
+                font-size: 40px;
                 text-align: center;
                 text-transform: uppercase;
             }
@@ -49,27 +66,31 @@
         @include flex();
         align-items: center;
         position: relative;
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         padding: 10px;
         background-color: transparent;
         border-radius: 100%;
         border: 2px solid var(--color-black);
-        z-index: 2;
+        z-index: 3;
+
+        @include breakpoint-up(lg){
+            display: none;
+        }
 
         &.navigation-open {
             span {
                 &:first-of-type {
-                    transform: translate(0, 7px) rotate(45deg) ;
+                    transform: translate(0, 4px) rotate(45deg) ;
                 }
 
                 &:last-of-type {
-                    transform: translate(0, -6px) rotate(-45deg) ;
+                    transform: translate(0, -5px) rotate(-45deg) ;
                 }
             }
 
             + nav {
-                top: 35px;
+                right: 0;
             }
         }
 
