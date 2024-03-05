@@ -10,7 +10,12 @@
         "astro": "astro"
     },
     "dependencies": {
+        "@storyblok/astro": "^4.0.3",
         "astro": "^4.4.3",
-        "sass": "^1.71.1"
+        "sass": "^1.71.1",
+        "vite": "^5.1.5"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-basic-ssl": "^1.1.0"
     }
 }

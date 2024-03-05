@@ -1,31 +1,41 @@
 $colors: (
 
-    "white":                        #FFF,
-    "black":                        #000,
+    'white':                        #FFF,
+    'black':                        #000,
 
-    "body-text":                    #000,
-    "body-background":              #000,
+    'primary':                      #3F0766,
+    'secondary':                    #8800FF,
 
-    "link":                         #000,
-    "link-hover":                   #F00
+    'body-text':                    #000,
+    'body-background':              #fff,
+
+    'link':                         #000,
+    'link-hover':                   #02d8e9
 
 );
 
 
 $font: (
 
-    family: (
+    'family': (
 
-        primary:                    arial,
-        secondary:                  arial
+        'body':                    'Roboto',
+        'headline':                'Butler'
 
     ),
 
-    weight: (
+    'weight': (
 
-        bold:                       700
+        'extra-light':              200,
+        'light':                    300,
+        'regular':                  400,
+        'medium':                   500,
+        'bold':                     700,
+        'extra-bold':               800,
+        'black':                    900
 
     )
+
 );
 
 
@@ -37,6 +47,8 @@ $grid-breakpoints: (
     xs:                             0,
     md:                             768px,
     lg:                             992px,
+    xl:                             1200px,
+    xxl:                            1400px
 
 );
 

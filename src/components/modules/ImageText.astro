@@ -1,0 +1,46 @@
+---
+import AstroImage from '@components/partials/AstroImage.astro';
+import { storyblokEditable } from '@storyblok/astro';
+
+const { blok } = Astro.props;
+---
+
+<div class:list={[ 'image-text', {'image--right': blok.image_right}]} {...storyblokEditable(blok)}>
+    <div class="grid-container">
+
+        <div class="image-text__image col-12 col-md-10 offset-left-md-1 col-lg-5 offset-left-lg-0">
+            <AstroImage 
+                src={blok.image.filename}
+                width="420"
+                height="280"
+                sizes=  {`
+                            viewport: 1400, size: 522 |
+                            viewport: 1200, size: 448 |
+                            viewport: 992, size: 372 |
+                            viewport: 768, size: 564 |
+                            viewport: 320, size: 500 |
+                        `}
+                loading="lazy"
+                alt={blok.image.alt}
+            />
+        </div>
+
+        <div class="image-text__content col-12 col-md-10 offset-left-md-1">
+
+        </div>
+    </div>
+</div>
+
+<style lang="scss">
+    .image-text {
+        margin-top: 20px;
+
+        &.image--right {
+            @media (min-width: 992px){
+                .grid-container {
+                    flex-direction: row-reverse;
+                }   
+            }
+        }
+    }
+</style>

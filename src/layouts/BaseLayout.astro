@@ -1,0 +1,44 @@
+---
+import '@styles/styles.scss';
+
+import SiteHeader from '@components/layout/SiteHeader.astro';
+import SiteFooter from '@components/layout/SiteFooter.astro';
+
+import { useStoryblokApi } from '@storyblok/astro';
+
+const storyblokApi = useStoryblokApi();
+
+const { data } = await storyblokApi.get('cdn/stories/meta/settings', {
+    version: 'draft',
+    resolve_links: 'url',
+});
+
+const meta = data;
+const headerMenu = data?.story?.content?.header_menu;
+const footerMenu = data?.story?.content?.footer_menu;
+
+console.log(meta)
+---
+
+<html lang="de">
+	<head>
+		<meta charset="utf-8" />
+
+		<meta name="viewport" content="width=device-width" />
+
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+		<link rel="preload" href="/fonts/fonts.css" as="style" />
+		<link rel="stylesheet" href="/fonts/fonts.css" />
+
+		<title></title>
+	</head>
+
+	<body>
+		<SiteHeader headerMenu={headerMenu} />
+
+		<slot />
+
+		<SiteFooter footerMenu={footerMenu} />
+	</body>
+</html>

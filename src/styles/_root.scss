@@ -3,11 +3,11 @@
         --color-#{$color}: #{$hexcode};
     }
 
-    @each $name, $font in map-get($font, family){
+    @each $name, $font in map-get($font, "family"){
         --font-family-#{$name}: #{$font};
     }
 
-    @each $name, $value in map-get($font, weight){
+    @each $name, $value in map-get($font, "weight"){
         --font-weight-#{$name}: #{$value};
     }
 

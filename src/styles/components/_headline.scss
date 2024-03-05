@@ -1,16 +1,27 @@
+%headline {
+    font-family: var(--font-family-headline);
+    font-weight: var(--font-weight-bold);
+}
+
 h1, .h1 {
     font-size: 36px;
     line-height: 42px;
+
+    @extend %headline;
 }
 
 h2, .h2 {
     font-size: 36px;
     line-height: 42px;
+
+    @extend %headline;
 }
 
 h3, .h3 {
     font-size: 36px;
     line-height: 42px;
+
+    @extend %headline;
 }
 
 h4, .h4 {

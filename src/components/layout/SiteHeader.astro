@@ -1,5 +1,5 @@
 ---
-
+const {headerMenu} = Astro.props;
 ---
 
 <header class="site-header">
@@ -25,29 +25,28 @@
             <span></span>
         </button>
 
-        <nav class="site-header__navigation col-lg-5">
+        <nav class="site-header__navigation col-lg-6">
             <ul>
-                <li>
-                    <a href="/" aria-label="to homepage"> home</a>
-                </li>
-                <li>
-                    <a href="/work" aria-label="to workpage"> work</a>
-                </li>
-                <li>
-                    <a href="/myslf" aria-label="to myslfpage"> Myslf</a>
-                </li>
-                <li>
-                    <a href="/contact" aria-label="to contactpage"> contact</a>
-                </li>
+                {
+                    headerMenu.map((nav) => 
+                        <li>
+                            <a href={`/${nav.link.cached_url}`} aria-label={nav.aria_label} target={nav.link.target}>
+                                {nav.linktext}
+                            </a>
+                        </li>
+                    )
+                }
             </ul>
         </nav>
     </div>
 </header>
 
 <script>
+    /*
     let btn = document.querySelector(".site-header__navigation-toggle");
 
     btn.addEventListener("click", () => {
         btn.classList.toggle("navigation-open");
     });
+    */
 </script>
