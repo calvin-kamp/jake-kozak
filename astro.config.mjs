@@ -13,9 +13,7 @@ export default defineConfig({
             components: {
                 page: 'storyblok/Page',
                 meta: 'storyblok/Meta',
-                image_text: 'components/modules/ImageText',
-                image_banner: 'components/ImageBanner',
-                hero_banner: 'components/HeroBanner',
+                image_text: 'components/modules/ImageText'
             },
         }),
     ],
