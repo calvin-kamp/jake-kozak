@@ -13,11 +13,11 @@ const { data } = await storyblokApi.get('cdn/stories/meta/settings', {
     resolve_links: 'url',
 });
 
-const meta = data;
+const meta = data?.story?.content?.meta;
 const headerMenu = data?.story?.content?.header_menu;
 const footerMenu = data?.story?.content?.footer_menu;
 
-console.log(meta)
+console.log(data?.story?.content?.meta)
 ---
 
 <html lang="de">
@@ -26,12 +26,14 @@ console.log(meta)
 
 		<meta name="viewport" content="width=device-width" />
 
+		<meta name="description" content={meta.description}>
+
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
 		<link rel="preload" href="/fonts/fonts.css" as="style" />
 		<link rel="stylesheet" href="/fonts/fonts.css" />
 
-		<title></title>
+		<title>{meta.title}</title>
 	</head>
 
 	<body>
