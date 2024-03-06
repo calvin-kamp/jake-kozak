@@ -2,9 +2,11 @@
 import AstroImage from '@components/partials/AstroImage.astro';
 import { storyblokEditable } from '@storyblok/astro';
 
-import { Picture  } from 'astro:assets';
+import { Image, Picture  } from 'astro:assets';
 
 const { blok } = Astro.props;
+
+let src = blok.image.filename + '/m/'
 ---
 
 <div class:list={[ 'image-text', {'image--right': blok.image_right}]} {...storyblokEditable(blok)}>
@@ -12,12 +14,10 @@ const { blok } = Astro.props;
 
         <div class="image-text__image col-12 col-md-10 offset-left-md-1 col-lg-5 offset-left-lg-0">
             <Picture
-                src={blok.image.filename}
-                widths={[240, 540, 720, blok.image.filename]}
-                sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${blok.image.filename}px`}
-                formats={['avif', 'webp']}
-                alt={blok.image.alt}
-                loading="lazy"
+            src={src}
+            inferSize
+            loading="lazy"
+            alt="alt"
             />
         </div>
 
