@@ -20,7 +20,7 @@ export default defineConfig({
     vite: {
         plugins: [basicSsl()],
         server: {
-            https: true
+            https: false
         }
     },
     output: "server",
