@@ -16,7 +16,7 @@ let src = blok.image.filename + '/m/'
             <Picture
             src={src}
             inferSize
-            loading="lazy"
+            loading="eager"
             alt="alt"
             />
         </div>
@@ -29,7 +29,7 @@ let src = blok.image.filename + '/m/'
 
 <style lang="scss">
     .image-text {
-        margin-top: 100vh;
+        margin-top: 100px;
 
         &.image--right {
             @media (min-width: 992px){
