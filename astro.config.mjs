@@ -20,8 +20,11 @@ export default defineConfig({
     vite: {
         plugins: [basicSsl()],
         server: {
-            https: false
+            https: true
         }
+    },
+    image: {
+        remotePatterns: [{ protocol: "https" }],
     },
     output: "server",
     adapter: netlify({
