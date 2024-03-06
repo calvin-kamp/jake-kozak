@@ -6,18 +6,27 @@ import { Image, Picture  } from 'astro:assets';
 
 const { blok } = Astro.props;
 
-let src = blok.image.filename + '/m/'
+let src = blok.image.filename
 ---
 
 <div class:list={[ 'image-text', {'image--right': blok.image_right}]} {...storyblokEditable(blok)}>
     <div class="grid-container">
 
         <div class="image-text__image col-12 col-md-10 offset-left-md-1 col-lg-5 offset-left-lg-0">
-            <Picture
-            src={src}
-            inferSize
-            loading="eager"
-            alt="alt"
+            <Image
+                src=`${blok.image.filename}/m/`
+                widths={[280, 500, 564, 372, 448, 448, 522, blok.image.filename.width]}
+                sizes=  {`
+                            (min-width: 1400px) 522px, ${blok.image.filename.width}px
+                            (min-width: 1200px) 448px, 
+                            (min-width: 992px) 372px, 
+                            (min-width: 720px) 564px, 
+                            (min-width: 540px) 500px,
+                            (min-width: 320px) 280px,
+                        `}
+                alt="alt"
+                inferSize
+                loading="eager"
             />
         </div>
 
