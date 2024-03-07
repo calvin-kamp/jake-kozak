@@ -23,8 +23,7 @@ export default defineConfig({
             https: false
         }
     },
-    output: "server",
-    adapter: netlify({
-        imageCDN: false,
-    })
+    image: {
+        domains: ["a.storyblok.com"]
+    }
 });
